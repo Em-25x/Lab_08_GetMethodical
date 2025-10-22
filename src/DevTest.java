@@ -5,8 +5,7 @@ public class DevTest
     public static void main(String[] args)
     {
         Scanner in = new Scanner(System.in);
-        double tempToday = SafeInput.getDouble(in,"What is the temp today in C?");
-        System.out.println("the temperature today is: " + tempToday);
-
+        int yourAge = SafeInput.getRangedInt(in,"How old are you?",0,122);
+        System.out.println("You told me that you are " + yourAge + " years old.");
     }
 }
