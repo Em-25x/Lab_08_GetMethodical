@@ -144,4 +144,35 @@ public class SafeInput
         } while (!done);
         return newDouble;
     }
+    /**
+     * @param pipe Scanner object that you created in main
+     * @param prompt message to display as the prompt for the input
+     */
+    public static boolean getYNConfirm(Scanner pipe, String prompt)
+    {
+        String trash = "";
+        boolean done = false;
+        boolean YN = false;
+        String confirm = "";
+        do
+        {
+            System.out.print("\n" + prompt + "[Y/N]: ");
+            confirm = pipe.nextLine();
+            if(confirm.equalsIgnoreCase("Y"))
+            {
+                YN = true;
+                done = true;
+            }
+            else if (confirm.equalsIgnoreCase("N"))
+            {
+                YN = false;
+                done = true;
+            }
+            else
+            {
+                System.out.println("Please enter a valid input [Y/N], not: " + confirm);
+            }
+        }while(!done);
+        return YN;
+    }
 }
