@@ -175,4 +175,27 @@ public class SafeInput
         }while(!done);
         return YN;
     }
+    /**
+     * @param pipe Scanner object that you created in main in the usual way
+     * @param prompt is the message to display as the prompt for the input.
+     * @param regEx is the regEx pattern in java String format to use for matching
+     */
+    public static String getRegExString(Scanner pipe, String prompt, String regEx) {
+        String value = "";
+        boolean done = false;
+        do
+        {
+            System.out.print(prompt + ": ");
+            value = pipe.nextLine();
+            if (value.matches(regEx))
+            {
+                done = true;
+            }
+            else
+            {
+                System.out.println("\nInvalid input: " + value);
+            }
+        } while (!done);
+        return value;
+    }
 }

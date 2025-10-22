@@ -5,14 +5,8 @@ public class DevTest
     public static void main(String[] args)
     {
         Scanner in = new Scanner(System.in);
-        boolean done = SafeInput.getYNConfirm(in,"Are you done?");
-        if(done == true)
-        {
-            System.out.println("You are done");
-        }
-        else
-        {
-            System.out.println("You are not done");
-        }
+        String phoneNumber = SafeInput.getRegExString(in,"Enter your phone number","^1-\\d{3} \\d{3}-\\d{4}");
+        System.out.println("Your phone number is " + phoneNumber);
+
     }
 }
