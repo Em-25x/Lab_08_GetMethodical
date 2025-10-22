@@ -45,4 +45,31 @@ public class SafeInput
         }while(!done);
         return newInt;
     }
+    /**
+     * @param pipe Scanner object that you created in main in the usual way
+     * @param prompt the message to display as the prompt for the input.
+     * @return any double
+     */
+    public static double getDouble(Scanner pipe, String prompt)
+    {
+        String trash = "";
+        double newDouble = 0.0;
+        boolean done = false;
+        do
+        {
+            System.out.print("\n" + prompt + ": ");
+            if (pipe.hasNextDouble())
+            {
+                newDouble = pipe.nextDouble();
+                pipe.nextLine();
+                done = true;
+            }
+            else
+            {
+                trash = pipe.nextLine();
+                System.out.println("Please enter a valid double, not: " + trash);
+            }
+        }while(!done);
+        return newDouble;
+    }
 }
