@@ -93,7 +93,7 @@ public class SafeInput
                 pipe.nextLine();
                 if(newInt < low || newInt > high)
                 {
-                    System.out.println("Please enter an integer in range [" + low + "-" + high + "], not:" + newInt);
+                    System.out.println("Please enter an integer in range [" + low + "-" + high + "], not: " + newInt);
                 }
                 else
                 {
@@ -107,5 +107,41 @@ public class SafeInput
             }
         }while(!done);
         return newInt;
+    }
+    /**
+     * @param pipe Scanner object that you created in main in the usual way
+     * @param prompt is the message to display as the prompt for the input
+     *    not including the [lo – hi] display
+     * @param low the low value for the input range
+     * @param high the high value for the input range
+     */
+    public static double getRangedDouble(Scanner pipe, String prompt, double low, double high)
+    {
+        String trash = "";
+        double newDouble = 0;
+        boolean done = false;
+        do
+        {
+            System.out.print("\n" + prompt + " [" + low + "-" + high + "]: ");
+            if (pipe.hasNextDouble())
+            {
+                newDouble = pipe.nextDouble();
+                pipe.nextLine();
+                if (newDouble < low || newDouble > high)
+                {
+                    System.out.println("Please enter a number in range [" + low + "-" + high + "], not: " + newDouble);
+                }
+                else
+                {
+                    done = true;
+                }
+            }
+            else
+            {
+                trash = pipe.nextLine();
+                System.out.println("Please enter a valid number, not: " + trash);
+            }
+        } while (!done);
+        return newDouble;
     }
 }
