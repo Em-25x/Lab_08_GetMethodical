@@ -17,4 +17,32 @@ public class SafeInput
 
         return retString;
     }
+    /**
+     *
+     *@param pipe Scanner object that you created in main in the usual way
+     *@param prompt the message to display as the prompt for the input.
+     *@return any integer
+     */
+    public static int getInt(Scanner pipe, String prompt)
+    {
+        String trash = "";
+        int newInt = 0;
+        boolean done = false;
+        do
+        {
+            System.out.print("\n" + prompt + ": ");
+            if (pipe.hasNextInt())
+            {
+                newInt = pipe.nextInt();
+                pipe.nextLine();
+                done = true;
+            }
+            else
+            {
+                trash = pipe.nextLine();
+                System.out.println("Please enter a valid integer, not: " + trash);
+            }
+        }while(!done);
+        return newInt;
+    }
 }
